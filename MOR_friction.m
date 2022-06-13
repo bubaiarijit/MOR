@@ -212,7 +212,7 @@ end
 plot(t,yrlg,'--','DisplayName',strcat('Reduced system(LBT), dim=',num2str(Nr2)),'Linewidth',3)
 hold off
 %% Figure 2 (Error Bounds)
-figure(3)
+figure(2)
 p=[];
 bound=[];
 for i=1:2*n
@@ -239,6 +239,13 @@ plot(q,bound,'DisplayName','GDBT','Linewidth',3.5)
 hold off
 
 %% Figure 3(Difference between actual errors incurred by EDBT and GDBT)
+figure(3)
+Cbal4=B'*H*W;
+[t,zrg]=ode45(@(t,z) func(t,z,W), tspan, z0);
+yrg=[];
+for i=1:length(zeg(:,1))
+    yrg=[yrg;Cbal4*zeg(i,:)'];
+end
 error1=[];
 error2=[];
 error3=[];
