@@ -9,8 +9,8 @@ n = 40; %dimension of original system
 save('mechanical_example_data.mat')
 global n
 tspan=0:.01:100;
-Nr1=10; %dimension of reduced order model
-Nr2=5;
+Nr1=40; %dimension of reduced order model
+Nr2=30;
 K1=K(1:n,1:n);
 M1=M(1:n,1:n);
 M_inv=inv(M1);
